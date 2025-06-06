@@ -1,0 +1,121 @@
+Step 1: Setup and "Hello World"
+🔹 What You Learn:
+What Streamlit is
+
+How to install and run a basic app
+
+🧪 Practice:
+Install Streamlit (Run in terminal or command prompt):
+
+
+pip install streamlit
+Create a file named app.py:
+
+python
+Copy
+Edit
+import streamlit as st
+
+st.title("Hello, Streamlit!")
+st.write("Welcome to your first Streamlit app.")
+Run the app:
+
+bash
+Copy
+Edit
+streamlit run app.py
+🔍 Explore:
+
+Try modifying st.write() to display numbers, dataframes, etc.
+
+✅ Step 2: Widgets and Interactivity
+🔹 What You Learn:
+Using text input, slider, checkbox, etc.
+
+🧪 Practice:
+Update app.py:
+
+python
+Copy
+Edit
+import streamlit as st
+
+st.title("Simple Interactions")
+
+name = st.text_input("What's your name?")
+age = st.slider("Select your age", 0, 100)
+
+if st.button("Submit"):
+    st.success(f"Hello {name}, you are {age} years old.")
+✅ Step 3: Display Data
+🔹 What You Learn:
+Show tables and charts using Pandas and Matplotlib
+
+🧪 Practice:
+python
+Copy
+Edit
+import streamlit as st
+import pandas as pd
+import numpy as np
+
+st.title("Data Display Example")
+
+data = pd.DataFrame(
+    np.random.randn(10, 2),
+    columns=['A', 'B']
+)
+
+st.dataframe(data)
+st.line_chart(data)
+✅ Step 4: Plot with Matplotlib or Plotly
+🔹 What You Learn:
+Add custom plots
+
+🧪 Practice:
+python
+Copy
+Edit
+import streamlit as st
+import matplotlib.pyplot as plt
+import numpy as np
+
+st.title("Matplotlib Plot")
+
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+fig, ax = plt.subplots()
+ax.plot(x, y)
+
+st.pyplot(fig)
+✅ Step 5: File Upload & Download
+🔹 What You Learn:
+Upload CSV, display it
+
+Download processed data
+
+🧪 Practice:
+python
+Copy
+Edit
+uploaded_file = st.file_uploader("Choose a CSV file")
+if uploaded_file:
+    df = pd.read_csv(uploaded_file)
+    st.write(df)
+
+    st.download_button("Download CSV", df.to_csv(index=False), "output.csv")
+✅ Step 6: Layouts and Organization
+🔹 What You Learn:
+Columns, sidebar, tabs
+
+🧪 Practice:
+python
+Copy
+Edit
+st.sidebar.title("Sidebar")
+option = st.sidebar.selectbox("Choose an option", ["A", "B", "C"])
+
+col1, col2 = st.columns(2)
+col1.write("This is column 1")
+col2.write("This is column 2")
